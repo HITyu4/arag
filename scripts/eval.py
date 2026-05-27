@@ -18,6 +18,9 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
+from dotenv import load_dotenv
+load_dotenv()
+
 from arag import LLMClient, Config
 
 logger = logging.getLogger(__name__)

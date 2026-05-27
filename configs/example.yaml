@@ -13,9 +13,10 @@ llm:
 
 embedding:
   # HuggingFace model name or local model path
-  # We use Qwen3-Embedding-0.6B in our paper
-  model: "Qwen/Qwen3-Embedding-0.6B"
-  # model: "/path/to/local/Qwen3-Embedding-0.6B"
+  # Or use API-compatible embedding model via build_index_api.py
+  model: "text-embedding-v4"
+  # model: "Qwen/Qwen3-Embedding-0.6B"
+  # model: "/path/to/local/model"
   device: "cuda:0"  # or "cpu"
   batch_size: 16
 

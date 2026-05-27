@@ -23,6 +23,9 @@ from pathlib import Path
 from typing import List, Dict, Any
 from tqdm import tqdm
 
+from dotenv import load_dotenv
+load_dotenv()
+
 
 def split_sentences(text: str) -> List[str]:
     """Split text into sentences."""
@@ -173,10 +176,10 @@ def main():
     parser = argparse.ArgumentParser(description="Build semantic search index via API")
     parser.add_argument("--chunks", "-c", required=True, help="Path to chunks.json")
     parser.add_argument("--output", "-o", required=True, help="Output directory for index")
-    parser.add_argument("--model", "-m", required=True, help="Embedding model name")
+    parser.add_argument("--model", "-m", default="text-embedding-v4",required=True, help="Embedding model name")
     parser.add_argument("--api-key", help="API key (or set ARAG_API_KEY env var)")
     parser.add_argument("--api-base", help="API base URL (or set ARAG_BASE_URL env var)")
-    parser.add_argument("--batch-size", "-b", type=int, default=32, help="Batch size")
+    parser.add_argument("--batch-size", "-b", type=int, default=10, help="Batch size")
     parser.add_argument("--dimensions", "-d", type=int, default=None,
                        help="Embedding dimensions (if required by API)")
 
